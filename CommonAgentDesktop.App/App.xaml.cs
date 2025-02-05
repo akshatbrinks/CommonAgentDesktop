@@ -1,12 +1,14 @@
-﻿namespace CommonAgentDesktop.App
+﻿using CommonAgentDesktop.App.ViewModels;
+
+namespace CommonAgentDesktop.App
 {
     public partial class App : Application
     {
-        public App()
+        public App(AppShellViewModel vm)
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new AppShell(vm);
         }
     }
 }

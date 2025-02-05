@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommonAgentDesktop.App.Views.ShellComponents.AppShellFlyoutHeader" BackgroundColor="{StaticResource AppBlueColor}"
+      HeightRequest="181">
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="40" />
+        <RowDefinition Height="16" />
+        <RowDefinition Height="43" />
+        <RowDefinition Height="24" />
+        <RowDefinition Height="21" />
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <Image Source="brinks_logo.png" WidthRequest="39" HeightRequest="43" Grid.Row="2" />
+
+    <Label Text="aagarwal@brinkshome.com" Grid.Row="4"
+       TextColor="White"
+       HorizontalOptions="Center"
+       FontSize="14"/>
+
+
+    <Label HorizontalOptions="Center" TextDecorations="Underline" Text="Sign Out" Grid.Row="5" TextColor="White" FontSize="14">
+        <Label.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding SignOutCommand}" />
+        </Label.GestureRecognizers>
+    </Label>
+
+</Grid>

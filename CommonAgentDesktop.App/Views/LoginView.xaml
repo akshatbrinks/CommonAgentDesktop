@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CommonAgentDesktop.App.Views.LoginView"
+             xmlns:base="clr-namespace:CommonAgentDesktop.App.Views.Base"
+             xmlns:controls="clr-namespace:CommonAgentDesktop.App.Controls"
+             Title="LoginView">
+    <Grid>
+        <controls:AppBlueBtn Text="Login" Command="{Binding SignInCommand}" WidthRequest="100" 
+                             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" AutomationId="LoginBtn"/>
+    </Grid>
+</base:ContentPageBase>

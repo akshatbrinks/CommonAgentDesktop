@@ -1,10 +1,14 @@
-﻿namespace CommonAgentDesktop.App
+﻿using CommonAgentDesktop.App.ViewModels;
+
+namespace CommonAgentDesktop.App
 {
     public partial class AppShell : Shell
     {
-        public AppShell()
+        public AppShell(AppShellViewModel vm)
         {
             InitializeComponent();
+
+            BindingContext = vm;
         }
     }
 }

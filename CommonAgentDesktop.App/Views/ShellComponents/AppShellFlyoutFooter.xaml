@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:controls="clr-namespace:CommonAgentDesktop.App.Controls"
+             x:Class="CommonAgentDesktop.App.Views.ShellComponents.AppShellFlyoutFooter" HeightRequest="100">
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="10"/>
+        <RowDefinition Height="24"/>
+        <RowDefinition Height="10"/>
+        <RowDefinition Height="24"/>
+        <RowDefinition Height="10"/>
+    </Grid.RowDefinitions>
+
+    <controls:CollapseWidget IsCollapsed ="{Binding IsWidgetCollapsed}" TapCommand="{Binding ToggleSidebarCommand}" 
+                             Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+    <HorizontalStackLayout Spacing="10" Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center">
+        <Image Source="brinks_logo_grey.png" HeightRequest="24"/>
+        <Label Text="version 2.8.0" TextColor="White" FontSize="14"/>
+    </HorizontalStackLayout>
+    
+</Grid>

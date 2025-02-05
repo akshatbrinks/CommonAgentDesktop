@@ -3,13 +3,68 @@
     x:Class="CommonAgentDesktop.App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CommonAgentDesktop.App"
-    Shell.FlyoutBehavior="Disabled"
-    Title="CommonAgentDesktop.App">
+    xmlns:view="clr-namespace:CommonAgentDesktop.App.Views"
+    xmlns:components="clr-namespace:CommonAgentDesktop.App.Views.ShellComponents"
+    xmlns:controls="clr-namespace:CommonAgentDesktop.App.Controls"
+    xmlns:constants="clr-namespace:CommonAgentDesktop.App.Models"
+    Title="CommonAgentDesktop.App" FlyoutBehavior="Disabled" FlyoutWidth="251" Shell.NavBarIsVisible="False" 
+    FlyoutBackgroundColor="{StaticResource AppBlueColor}">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <ShellContent Title="Login" Route="{x:Static constants:ViewsRouting.LoginView}"
+        ContentTemplate="{DataTemplate view:LoginView}" FlyoutItemIsVisible="False" />
+
+    <FlyoutItem Route="{x:Static constants:ViewsRouting.HomeView}" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Shell.TabBarIsVisible="False" Title="Customer Lookup" ContentTemplate="{DataTemplate view:CustomerLookup}" 
+                      Route="{x:Static constants:ViewsRouting.CustomerLookupView}" FlyoutIcon="search.png">
+
+        </ShellContent>
+
+        <ShellContent Shell.TabBarIsVisible="False" Title="Moves" ContentTemplate="{DataTemplate view:MovesView}" 
+                      Route="{x:Static constants:ViewsRouting.MovesView}" FlyoutIcon="move_customer.png"/>
+        <ShellContent Shell.TabBarIsVisible="False" Title="Job Scheduling" ContentTemplate="{DataTemplate view:JobSchedulingView}" 
+                      Route="{x:Static constants:ViewsRouting.JobSchedulingView}" FlyoutIcon="job_scheduling.png"/>
+        <ShellContent Shell.TabBarIsVisible="False" Title="My Account" ContentTemplate="{DataTemplate view:MyAccountView}" 
+                      Route="{x:Static constants:ViewsRouting.MyAccountView}" FlyoutIcon="home_my_acc.png"/>
+        <ShellContent Shell.TabBarIsVisible="False" Title="Voziq" ContentTemplate="{DataTemplate view:VoziqView}" 
+                      Route="{x:Static constants:ViewsRouting.VoziqView}" FlyoutIcon="voziq.png"/>
+    </FlyoutItem>
+
+    <TabBar Route="{x:Static constants:ViewsRouting.CustomerLookupTabs}">
+
+        <Tab Title="Event History">
+            <ShellContent Title="Event History" ContentTemplate="{DataTemplate view:EventHistoryView}" 
+              Route="{x:Static constants:ViewsRouting.EventHistoryView}"/>
+        </Tab>
+
+        <Tab Title="Account Activity">
+            <ShellContent Title="Account Activity" ContentTemplate="{DataTemplate view:AccountActivityView}" 
+              Route="{x:Static constants:ViewsRouting.AccountActivityView}"/>
+        </Tab>
+
+        <Tab Title="Contract History">
+            <ShellContent Title="Contract History" ContentTemplate="{DataTemplate view:ContractHistoryView}" 
+Route="{x:Static constants:ViewsRouting.ContractHistoryView}"/>
+        </Tab>
+
+        <Tab Title="Account Management">
+            <ShellContent Title="Account Management" ContentTemplate="{DataTemplate view:AccountManagementView}" 
+              Route="{x:Static constants:ViewsRouting.AccountManagementView}"/>
+        </Tab>
+
+    </TabBar>
+
+    <Shell.FlyoutHeader>
+        <components:AppShellFlyoutHeader/>
+    </Shell.FlyoutHeader>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <controls:MenuItem MenuImage="{Binding FlyoutIcon}" MenuText="{Binding Title}" MenuTextColor="White" Padding="20"/>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.FlyoutFooter>
+        <components:AppShellFlyoutFooter/>
+    </Shell.FlyoutFooter>
 
 </Shell>
