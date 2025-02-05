@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/CommonAgentDesktop.App/obj
+/CommonAgentDesktop.App/CommonAgentDesktop.App.csproj.user
+/CommonAgentDesktop.App/bin
